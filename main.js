@@ -33,6 +33,7 @@ $(document).ready(function(){
         } else {
           temp = Number(temp);
           temp = (temp * 9/5) + 32;
+          temp = Math.round(temp);
           $("#weather").empty().append("<p>The current temperature is " + "<span id='temp'>" + temp + "</span>&deg; F</p>");
           degree.celsius = true;
         }
