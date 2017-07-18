@@ -22,13 +22,15 @@ $(document).ready(function(){
         $("#summary").append("<p>" + data.hourly.summary + "</p>");
         if(data.currently.summary == 'Clear'){
           $("#summary").append("<p>Currently the weather is: " + data.currently.summary + "</p>");
-            $("#image").append("<img src='photos/sunny.png'>");
+          $("#image").append("<img src='photos/sunny.png'>");
         } else if(data.currently.summary == 'Partly Cloudy'){
           $("#summary").append("<p>Currently the weather is: " + data.currently.summary + "</p>");
             $("#image").append("<img src='photos/partlycloudy.png'>");
         } else if(data.currently.summary == 'Drizzle' || data.currently.summary == 'Light Rain'){
           $("#summary").append("<p>Currently the weather is: " + data.currently.summary + "</p>");
             $("#image").append("<img src='photos/rainy.png'>");
+        } else {
+          $("#summary").append("<p>No current weather data</p>");
         }
 
         console.log(data.currently.temperature)
