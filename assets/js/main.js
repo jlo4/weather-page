@@ -19,6 +19,18 @@ $(document).ready(function(){
 
       $.getJSON(weatherAPI , function(data){
         $("#weather").append("<p>The current temperature is " +  "<span id='temp'>" + Math.round(data.currently.temperature) + "</span>&deg; F</p>");
+        $("#summary").append("<p>" + data.hourly.summary + "</p>");
+        if(data.currently.summary == 'Clear'){
+          $("#summary").append("<p>Currently the weather is: " + data.currently.summary + "</p>");
+            $("#image").append("<img src='photos/sunny.png'>");
+        } else if(data.currently.summary == 'Partly Cloudy'){
+          $("#summary").append("<p>Currently the weather is: " + data.currently.summary + "</p>");
+            $("#image").append("<img src='photos/partlycloudy.png'>");
+        } else if(data.currently.summary == 'Drizzle' || data.currently.summary == 'Light Rain'){
+          $("#summary").append("<p>Currently the weather is: " + data.currently.summary + "</p>");
+            $("#image").append("<img src='photos/rainy.png'>");
+        }
+
         console.log(data.currently.temperature)
       });
 
